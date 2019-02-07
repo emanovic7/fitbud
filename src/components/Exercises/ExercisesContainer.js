@@ -4,12 +4,14 @@ import Exercise from './Exercise';
 
 class ExercisesContainer extends Component {
 
-  renderExercises = () => this.props.exercises.map((exercise, id) => <Exercise key={id} text={exercise}/>)
+  renderExercises = () => this.props.exercises.map((exercise, id) => <Exercise delete={this.props.delete}key={exercise.id} exercise={exercise} />)
 
   render() {
     return(
       <div>
-        {this.renderExercises()}
+        <ol>
+          {this.renderExercises()}
+        </ol>
       </div>
     );
   }
@@ -21,4 +23,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(ExercisesContainer);
+const mapDispatchToProps = (dispatch) => {
+  return{
+    delete: exerciseText => dispatch({type: 'DELETE_EXERCISE', payload: exerciseText})
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ExercisesContainer);

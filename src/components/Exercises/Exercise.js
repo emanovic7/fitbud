@@ -5,7 +5,9 @@ import React, { Component } from 'react';
 const Exercise = props => {
   return(
     <div>
-      <li>{props.text}</li>
+      <span>
+        <li>{props.exercise.text} <button onClick={() => props.delete(props.exercise.id)}>X</button></li>
+      </span>
     </div>
   );
 };

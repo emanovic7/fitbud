@@ -6,7 +6,14 @@ export default function manageExercises(state = {
 }, action){
   switch(action.type){
     case 'ADD_EXERCISE':
-      return {exercises: state.exercises.concat(action.payload.text)}
+      const exercise = {
+          id: Math.random()*10000000000000000,
+          text: action.payload.text
+      }
+      return {exercises: state.exercises.concat(exercise)};
+
+    case 'DELETE_EXERCISE':
+      return {exercises: state.exercises.filter(exercise => exercise.id !== action.payload)}
 
     default:
       return state;
