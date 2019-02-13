@@ -1,8 +1,8 @@
 
 
 
-export default function manageExercises(state = {
-  exercises: [],
+export default function manageExercises(laoding: false, state = {
+  exercises: []
 }, action){
   switch(action.type){
     case 'ADD_EXERCISE':
@@ -13,7 +13,13 @@ export default function manageExercises(state = {
       return {exercises: state.exercises.concat(exercise)};
 
     case 'DELETE_EXERCISE':
-      return {exercises: state.exercises.filter(exercise => exercise.id !== action.payload)}
+      return {exercises: state.exercises.filter(exercise => exercise.id !== action.payload)};
+
+    case 'LOADING_EXERCISES':
+      return Object.assign({}, state, {laoding: true})
+
+    case 'FETCH_EXERCISES':
+      return Object.assign(laoding: false, exercises: action.payload)
 
     default:
       return state;
