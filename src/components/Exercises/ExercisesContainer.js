@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import Exercise from './Exercise';
+import Exercise  from './Exercise';
+
+
+
 
 class ExercisesContainer extends Component {
 
-  renderExercises = () => this.props.exercises.map((exercise, id) => <Exercise delete={this.props.delete}key={exercise.id} exercise={exercise} />)
+  renderExercises = (props) => this.props.exercises && this.props.exercises.map((exercise, id) => <Exercise delete={this.props.delete} key={exercise.id} exercise={exercise} />)
 
   render() {
     return(
@@ -19,7 +22,7 @@ class ExercisesContainer extends Component {
 
 const mapStateToProps = (state) => {
   return{
-    exercises: state.exercises
+    exercises: state.exercises.exercises
   }
 }
 

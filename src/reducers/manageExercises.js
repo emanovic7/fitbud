@@ -1,9 +1,7 @@
 
 
 
-export default function manageExercises(laoding: false, state = {
-  exercises: []
-}, action){
+export default function manageExercises(state = {loading: false, exercises: []}, action) {
   switch(action.type){
     case 'ADD_EXERCISE':
       const exercise = {
@@ -19,7 +17,7 @@ export default function manageExercises(laoding: false, state = {
       return Object.assign({}, state, {laoding: true})
 
     case 'FETCH_EXERCISES':
-      return Object.assign(laoding: false, exercises: action.payload)
+      return {loading: false, exercises: action.payload}
 
     default:
       return state;

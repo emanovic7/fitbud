@@ -8,6 +8,7 @@ const Exercise = props => {
       <span>
         <li>{props.exercise.text} <button onClick={() => props.delete(props.exercise.id)}>X</button></li>
       </span>
+
     </div>
   );
 };
