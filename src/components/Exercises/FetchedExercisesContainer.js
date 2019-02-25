@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import FetchedExercise from './FetchedExercise';
 
 
 
@@ -10,21 +11,29 @@ class FetchedExercisesContainer extends React.Component {
     this.state = {
       name: '',
     };
-  };
+  }
 
 
     handleFetch() {
       this.props.fetchExercises()
     }
 
+    renderFetchedExercises = (props) => this.props.fetchedExercises && this.props.fetchedExercises.map((exercise, id) => <FetchedExercise exercise={exercise.name} />);
 
 
   render(){
     return(
+      <React.Fragment>
       <div>
         <p><label>Pull All Exercises</label></p>
         <button onClick={(event) => this.handleFetch(event)}>fetch exercises</button>
       </div>
+      <div>
+        <ol>
+          {this.state.FetchedExercises}
+        </ol>
+      </div>
+      </React.Fragment>
     )
   }
 }
@@ -35,7 +44,7 @@ function mapDispatchToProps(dispatch){
 }
 
 function mapStateToProps(state){
-  return {exercises: state.fetchedData.exercises}
+  return {exercises: state.fetchedData.fetchedExercises}
 }
 
 

@@ -25,7 +25,6 @@ class App extends Component {
         <FetchedExercisesContainer />
         <ExerciseInput />
         <ExercisesContainer />
-        <button onClick={(event) => this.handleFetch(event)}>fetch exercises</button>
       </div>
     );
   }

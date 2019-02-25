@@ -6,7 +6,7 @@ const Exercise = props => {
   return(
     <div>
       <span>
-        <li>{props.exercise.text} <button onClick={() => props.delete(props.exercise.id)}>X</button></li>
+        <li>{props.exercise.name} <button onClick={() => props.delete(props.exercise.id)}>X</button></li>
       </span>
 
     </div>

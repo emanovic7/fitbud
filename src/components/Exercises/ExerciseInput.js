@@ -13,7 +13,7 @@ class ExerciseInput extends React.Component {
 
   handleChange = (event) => {
     this.setState({
-      text: event.target.value
+      name: event.target.value
     });
   };
 
@@ -21,7 +21,7 @@ class ExerciseInput extends React.Component {
     event.preventDefault();
     this.props.addExercise(this.state);
     this.setState({
-      text: '',
+      name: '',
     })
   }
 
@@ -30,7 +30,7 @@ class ExerciseInput extends React.Component {
       <div>
         <form onSubmit={event => this.handleSubmit(event)}>
           <p><label>Add Exercise</label></p>
-          <p><input type="text" onChange={this.handleChange} value={this.state.text} /></p>
+          <p><input type="name" onChange={this.handleChange} value={this.state.name} /></p>
           <p><input type="submit" /></p>
         </form>
       </div>
