@@ -4,7 +4,9 @@ import './App.css';
 import ExerciseInput from './components/Exercises/ExerciseInput';
 import ExercisesContainer from './components/Exercises/ExercisesContainer';
 import FetchedExercisesContainer from './components/Exercises/FetchedExercisesContainer';
+import Muscles from './components/muscles/muscles';
 import { fetchExercises } from './actions/fetchExercises'
+
 
 import { connect } from 'react-redux';
 
@@ -25,6 +27,7 @@ class App extends Component {
         <FetchedExercisesContainer />
         <ExerciseInput />
         <ExercisesContainer />
+        <Muscles />
       </div>
     );
   }
