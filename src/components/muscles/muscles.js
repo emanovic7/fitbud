@@ -13,16 +13,15 @@ class Muscles extends React.Component {
     return(
       <div>
         <button onClick={(event) => this.handleOnClick(event)}>Fetch Muscles</button>
-        {muscles}
+        <ol>{muscles}</ol>
       </div>
     )
   }
 }
 
-
 const mapStateToProps = (state) => {
   return {
-    muscles: state.muscles.msucles
+    muscles: state.muscles.muscles
   }
 }
 

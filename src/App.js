@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import MainGrid from './MainGrid';
 import ExerciseInput from './components/Exercises/ExerciseInput';
 import ExercisesContainer from './components/Exercises/ExercisesContainer';
 import FetchedExercisesContainer from './components/Exercises/FetchedExercisesContainer';
 import Muscles from './components/muscles/muscles';
 import { fetchExercises } from './actions/fetchExercises'
+
 
 
 import { connect } from 'react-redux';
@@ -24,10 +26,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <FetchedExercisesContainer />
-        <ExerciseInput />
-        <ExercisesContainer />
-        <Muscles />
+        <MainGrid />
       </div>
     );
   }
