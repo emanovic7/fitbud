@@ -12,7 +12,7 @@ class Muscles extends React.Component {
       const muscles = this.props.muscles && this.props.muscles.map(muscle => <li key={muscle.id}>{muscle.name}</li>);
     return(
       <div>
-        <button onClick={(event) => this.handleOnClick(event)}>Fetch Muscles</button>
+        <button onClick={(event) => this.handleOnClick(event)}>Muscles</button>
         <ol>{muscles}</ol>
       </div>
     )
