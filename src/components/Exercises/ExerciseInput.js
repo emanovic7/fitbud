@@ -7,13 +7,16 @@ class ExerciseInput extends React.Component {
   constructor(){
     super();
     this.state = {
-      text: '',
+      name: '',
+      sets: '',
+      reps: '',
+      rest: ''
     };
   }
 
   handleChange = (event) => {
     this.setState({
-      name: event.target.value
+      [event.target.name]: event.target.value
     });
   };
 
@@ -22,6 +25,9 @@ class ExerciseInput extends React.Component {
     this.props.addExercise(this.state);
     this.setState({
       name: '',
+      sets: '',
+      reps: '',
+      rest: ''
     })
   }
 
@@ -30,7 +36,10 @@ class ExerciseInput extends React.Component {
       <div>
         <form onSubmit={event => this.handleSubmit(event)}>
           <p><label>Add Exercise</label></p>
-          <p><input type="name" onChange={this.handleChange} value={this.state.name} /></p>
+          <p>Exercise Name:<input type="text" onChange={this.handleChange} name="name" value={this.state.name} /></p>
+          <p># of Sets:<input type="text" onChange={this.handleChange} name="sets" value={this.state.sets} /></p>
+          <p># of Reps:<input type="text" onChange={this.handleChange} name="reps" value={this.state.reps} /></p>
+          <p>Rest (in secs):<input type="text" onChange={this.handleChange} name="rest" value={this.state.rest} /></p>
           <p><input type="submit" /></p>
         </form>
       </div>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import fetchCategories from '.../actions/fetchCategories';
+// import fetchCategories from './actions/fetchCategories';
 
 
 class Category extends React.Component {
@@ -38,15 +38,15 @@ export default connect(mapStateToProps, mapDispatchToProps)(Category);
 
 
 
-// export function fetchCategories() {
-//
-//   return function(dispatch){
-//     dispatch({type: 'LOADING_CATEGORIES'})
-//     return fetch('https://wger.de/api/v2/exercisecategory/')
-//       .then(res => {
-//         return res.json()
-//       }).then(responseJson => {
-//         dispatch({type: 'FETCH_CATEGORIES', payload: responseJson.results})
-//     })
-//   }
-// }
+export function fetchCategories() {
+
+  return function(dispatch){
+    dispatch({type: 'LOADING_CATEGORIES'})
+    return fetch('https://wger.de/api/v2/exercisecategory/')
+      .then(res => {
+        return res.json()
+      }).then(responseJson => {
+        dispatch({type: 'FETCH_CATEGORIES', payload: responseJson.results})
+    })
+  }
+}
